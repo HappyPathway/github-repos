@@ -12,4 +12,5 @@ module "chromebook_venv" {
   github_is_private = true
   repo_org = "HappyPathway"
   name = "chromebook-venv"
+  enforce_prs = false
 }
