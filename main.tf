@@ -9,8 +9,7 @@ module "repo" {
 module "chromebook_venv" {
   source  = "app.terraform.io/roknsound/repo/github"
   force_name = true
-  github_is_private = false
+  github_is_private = true
   repo_org = "HappyPathway"
   name = "chromebook-venv"
-  is_private = true
 }
