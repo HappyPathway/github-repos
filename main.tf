@@ -4,6 +4,7 @@ module "repo" {
   github_is_private = false
   repo_org = "HappyPathway"
   name = "aws-codebuild-image-pipeline"
+  enforce_prs = false
 }
 
 module "chromebook_venv" {
