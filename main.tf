@@ -15,3 +15,12 @@ module "chromebook_venv" {
   name = "chromebook-venv"
   enforce_prs = false
 }
+
+module "windows_image_pipeline" {
+  source  = "app.terraform.io/roknsound/repo/github"
+  force_name = true
+  github_is_private = true
+  repo_org = "HappyPathway"
+  name = "windows-image-pipeline"
+  enforce_prs = false
+}
