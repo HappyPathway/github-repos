@@ -33,3 +33,13 @@ module "linux_image_pipeline" {
   name = "linux-image-pipeline-packer"
   enforce_prs = false
 }
+
+
+module "terraform-book" {
+  source  = "app.terraform.io/roknsound/repo/github"
+  force_name = true
+  github_is_private = true
+  repo_org = "HappyPathway"
+  name = "terraform-book"
+  enforce_prs = false
+}
