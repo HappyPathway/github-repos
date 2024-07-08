@@ -43,3 +43,13 @@ module "terraform-book" {
   name = "terraform-book"
   enforce_prs = false
 }
+
+# image-pipeline-goss-testing
+module "image-pipeline-goss-testing" {
+  source  = "app.terraform.io/roknsound/repo/github"
+  force_name = true
+  github_is_private = true
+  repo_org = "HappyPathway"
+  name = "image-pipeline-goss-testing"
+  enforce_prs = false
+}
