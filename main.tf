@@ -53,3 +53,12 @@ module "image-pipeline-goss-testing" {
   name = "image-pipeline-goss-testing"
   enforce_prs = false
 }
+
+module "automation-repos" {
+  source  = "app.terraform.io/roknsound/repo/github"
+  force_name = true
+  github_is_private = true
+  repo_org = "HappyPathway"
+  name = "automation-repos"
+  enforce_prs = false
+}
