@@ -71,3 +71,12 @@ module "automation-repos" {
   name = "automation-repos"
   enforce_prs = false
 }
+
+module "ghe-runner" {
+  source  = "app.terraform.io/roknsound/repo/github"
+  force_name = true
+  github_is_private = true
+  repo_org = "HappyPathway"
+  name = "ghe-runner"
+  enforce_prs = false
+}
