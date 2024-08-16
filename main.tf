@@ -21,7 +21,7 @@ module "windows_image_pipeline" {
   force_name = true
   github_is_private = true
   repo_org = "HappyPathway"
-  name = "windows-image-pipeline-packer"
+  name = "windows-image-pipeline"
   enforce_prs = false
 }
 
@@ -30,7 +30,16 @@ module "linux_image_pipeline" {
   force_name = true
   github_is_private = true
   repo_org = "HappyPathway"
-  name = "linux-image-pipeline-packer"
+  name = "linux-image-pipeline"
+  enforce_prs = false
+}
+
+module "docker_image_pipeline" {
+  source  = "app.terraform.io/roknsound/repo/github"
+  force_name = true
+  github_is_private = true
+  repo_org = "HappyPathway"
+  name = "docker-image-pipeline"
   enforce_prs = false
 }
 
