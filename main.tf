@@ -84,7 +84,7 @@ module "ghe-runner" {
 module "seed-workspace" {
   source  = "app.terraform.io/roknsound/repo/github"
   force_name = true
-  github_is_private = true
+  github_is_private = false
   repo_org = "HappyPathway"
   name = "seed-workspace"
   enforce_prs = true
