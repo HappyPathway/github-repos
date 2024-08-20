@@ -36,11 +36,3 @@ module "seed-workspace" {
   enforce_prs       = true
 }
 
-module "arnol377-sandbox" {
-  source            = "app.terraform.io/roknsound/repo/github"
-  force_name        = true
-  github_is_private = true
-  repo_org          = "HappyPathway"
-  name              = "arnol377-sandbox"
-  enforce_prs       = true
-}
