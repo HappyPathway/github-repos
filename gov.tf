@@ -60,5 +60,5 @@ module "arnol377-sandbox" {
   github_is_private = true
   repo_org          = "HappyPathway"
   name              = "arnol377-sandbox"
-  enforce_prs       = true
+  enforce_prs       = false
 }
