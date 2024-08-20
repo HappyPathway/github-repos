@@ -30,9 +30,9 @@ module "terraform-book" {
 module "seed-workspace" {
   source            = "app.terraform.io/roknsound/repo/github"
   force_name        = true
-  github_is_private = false
+  github_is_private = true
   repo_org          = "HappyPathway"
   name              = "seed-workspace"
-  enforce_prs       = true
+  enforce_prs       = false
 }
 
