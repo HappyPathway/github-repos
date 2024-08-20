@@ -1,3 +1,3 @@
-provider github {
-    owner = "HappyPathway"
+provider "github" {
+  owner = "HappyPathway"
 }
