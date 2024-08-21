@@ -44,5 +44,8 @@ module "centralized-actions" {
   repo_org          = "HappyPathway"
   name              = "centralized-actions"
   enforce_prs       = true
+  pull_request_bypassers = [
+    "djaboxx"
+  ]
 }
 
