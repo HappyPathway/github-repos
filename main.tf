@@ -49,3 +49,42 @@ module "centralized-actions" {
   ]
 }
 
+
+
+module "terraform-plan" {
+  source            = "app.terraform.io/roknsound/repo/github"
+  force_name        = true
+  github_is_private = false
+  repo_org          = "HappyPathway"
+  name              = "terraform-plan"
+  enforce_prs       = true
+  pull_request_bypassers = [
+    "djaboxx"
+  ]
+}
+
+
+module "terraform-apply" {
+  source            = "app.terraform.io/roknsound/repo/github"
+  force_name        = true
+  github_is_private = false
+  repo_org          = "HappyPathway"
+  name              = "terraform-apply"
+  enforce_prs       = true
+  pull_request_bypassers = [
+    "djaboxx"
+  ]
+}
+
+
+module "terraform-validate" {
+  source            = "app.terraform.io/roknsound/repo/github"
+  force_name        = true
+  github_is_private = false
+  repo_org          = "HappyPathway"
+  name              = "terraform-validate"
+  enforce_prs       = true
+  pull_request_bypassers = [
+    "djaboxx"
+  ]
+}
