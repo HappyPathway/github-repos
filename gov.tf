@@ -66,41 +66,6 @@ locals {
   ]
 }
 
-moved {
-  from = module.windows_image_pipeline
-  to   = module.gov_repo["windows-image-pipeline"]
-}
-
-moved {
-  from = module.linux_image_pipeline
-  to   = module.gov_repo["linux-image-pipeline"]
-}
-
-moved {
-  from = module.docker_image_pipeline
-  to   = module.gov_repo["docker-image-pipeline"]
-}
-
-moved {
-  from = module.image-pipeline-goss-testing
-  to   = module.gov_repo["image-pipeline-goss-testing"]
-}
-
-moved {
-  from = module.automation-repos
-  to   = module.gov_repo["automation-repos"]
-}
-
-moved {
-  from = module.ghe-runner
-  to   = module.gov_repo["ghe-runner"]
-}
-
-moved {
-  from = module.arnol377-sandbox
-  to   = module.gov_repo["arnol377-sandbox"]
-}
-
 module "gov_repo" {
   for_each               = tomap({ for repo in local.gov_repos : repo.name => repo })
   source                 = "app.terraform.io/roknsound/repo/github"
