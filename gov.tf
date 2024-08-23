@@ -62,15 +62,6 @@ locals {
       pull_request_bypassers = [
         "djaboxx"
       ]
-    },
-    {
-      name        = "csvd-support"
-      org         = "HappyPathway"
-      enforce_prs = false
-      private     = true
-      pull_request_bypassers = [
-        "djaboxx"
-      ]
     }
   ]
 }
@@ -84,5 +75,6 @@ module "gov_repo" {
   name                   = each.value.name
   enforce_prs            = each.value.enforce_prs
   pull_request_bypassers = each.value.pull_request_bypassers
+  archive_on_destroy     = false
 }
 
