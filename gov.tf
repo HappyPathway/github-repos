@@ -62,6 +62,15 @@ locals {
       pull_request_bypassers = [
         "djaboxx"
       ]
+    },
+    {
+      name        = "csvd-support"
+      org         = "HappyPathway"
+      enforce_prs = false
+      private     = true
+      pull_request_bypassers = [
+        "djaboxx"
+      ]
     }
   ]
 }
