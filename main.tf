@@ -88,3 +88,16 @@ module "terraform-validate" {
     "djaboxx"
   ]
 }
+
+
+module "tfe-public-tools" {
+  source            = "app.terraform.io/roknsound/repo/github"
+  force_name        = true
+  github_is_private = true
+  repo_org          = "HappyPathway"
+  name              = "tfe-public-tools"
+  enforce_prs       = false
+  pull_request_bypassers = [
+    "djaboxx"
+  ]
+}
