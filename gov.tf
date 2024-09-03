@@ -19,6 +19,15 @@ locals {
       ]
     },
     {
+      name        = "image-pipeline-ansible-playbooks"
+      org         = "HappyPathway"
+      enforce_prs = false
+      private     = true
+      pull_request_bypassers = [
+        "djaboxx"
+      ]
+    },
+    {
       name        = "docker-image-pipeline"
       org         = "HappyPathway"
       enforce_prs = false
