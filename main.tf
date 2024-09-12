@@ -15,6 +15,18 @@ module "repo" {
   archive_on_destroy     = true
 }
 
+module "templates" {
+  for_each               = tomap({ for repo in var.template_repos : repo.name => repo })
+  source                 = "HappyPathway/repo/github"
+  force_name             = each.value.force_name
+  github_is_private      = each.value.private
+  repo_org               = var.repo_org
+  name                   = each.value.name
+  enforce_prs            = each.value.enforce_prs
+  pull_request_bypassers = var.pull_request_bypassers
+  archive_on_destroy     = true
+}
+
 
 data "github_repository" "repo" {
   for_each   = tomap({ for repo in var.repos : repo.name => repo })
