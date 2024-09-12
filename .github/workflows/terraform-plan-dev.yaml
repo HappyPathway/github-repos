@@ -4,6 +4,8 @@ on:
   pull_request:
     branches:
       - main
+  merge_group:
+    types: [checks_requested]
 env:
   GITHUB_OWNER: ${{ vars.gh_org }}
   GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
