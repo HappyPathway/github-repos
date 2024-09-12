@@ -1,103 +1,57 @@
+locals {
+  github_repo_base_dir = var.github_repo_base_dir != null ? var.github_repo_base_dir : pathexpand("~/git")
+}
+
 module "repo" {
-  source            = "app.terraform.io/roknsound/repo/github"
-  force_name        = true
-  github_is_private = false
-  repo_org          = "HappyPathway"
-  name              = "aws-codebuild-image-pipeline"
-  enforce_prs       = false
-}
-
-module "chromebook_venv" {
-  source            = "app.terraform.io/roknsound/repo/github"
-  force_name        = true
-  github_is_private = true
-  repo_org          = "HappyPathway"
-  name              = "chromebook-venv"
-  enforce_prs       = false
+  for_each               = tomap({ for repo in var.repos : repo.name => repo })
+  source                 = "app.terraform.io/roknsound/repo/github"
+  force_name             = each.value.force_name
+  github_is_private      = each.value.private
+  repo_org               = var.repo_org
+  name                   = each.value.name
+  enforce_prs            = each.value.enforce_prs
+  pull_request_bypassers = var.pull_request_bypassers
+  is_template            = lookup(each.value, "is_template")
 }
 
 
-module "terraform-book" {
-  source            = "app.terraform.io/roknsound/repo/github"
-  force_name        = true
-  github_is_private = true
-  repo_org          = "HappyPathway"
-  name              = "terraform-book"
-  enforce_prs       = false
+data "github_repository" "repo" {
+  for_each   = tomap({ for repo in var.repos : repo.name => repo })
+  full_name  = "${var.repo_org}/${each.key}"
+  depends_on = [module.repo]
 }
 
-
-module "seed-workspace" {
-  source            = "app.terraform.io/roknsound/repo/github"
-  force_name        = true
-  github_is_private = true
-  repo_org          = "HappyPathway"
-  name              = "seed-workspace"
-  enforce_prs       = false
+data "github_ref" "ref" {
+  for_each   = tomap({ for repo in var.repos : repo.name => repo })
+  owner      = var.repo_org
+  repository = each.key
+  ref        = "heads/${lookup(data.github_repository.repo, each.key).default_branch}"
+  depends_on = [module.repo]
 }
 
-
-module "centralized-actions" {
-  source            = "app.terraform.io/roknsound/repo/github"
-  force_name        = true
-  github_is_private = false
-  repo_org          = "HappyPathway"
-  name              = "centralized-actions"
-  enforce_prs       = true
-  pull_request_bypassers = [
-    "djaboxx"
-  ]
+resource "null_resource" "clone" {
+  for_each = var.clone_repo ? tomap({ for repo in var.repos : repo.name => repo }) : tomap({})
+  provisioner "local-exec" {
+    command     = "stat ${each.key} || git clone ${module.repo[each.key].github_repo.ssh_clone_url} ${each.key}"
+    working_dir = local.github_repo_base_dir
+  }
 }
 
-
-
-module "terraform-plan" {
-  source            = "app.terraform.io/roknsound/repo/github"
-  force_name        = true
-  github_is_private = false
-  repo_org          = "HappyPathway"
-  name              = "terraform-plan"
-  enforce_prs       = true
-  pull_request_bypassers = [
-    "djaboxx"
-  ]
-}
-
-
-module "terraform-apply" {
-  source            = "app.terraform.io/roknsound/repo/github"
-  force_name        = true
-  github_is_private = false
-  repo_org          = "HappyPathway"
-  name              = "terraform-apply"
-  enforce_prs       = true
-  pull_request_bypassers = [
-    "djaboxx"
-  ]
-}
-
-
-module "terraform-validate" {
-  source            = "app.terraform.io/roknsound/repo/github"
-  force_name        = true
-  github_is_private = false
-  repo_org          = "HappyPathway"
-  name              = "terraform-validate"
-  enforce_prs       = true
-  pull_request_bypassers = [
-    "djaboxx"
-  ]
-}
-
-
-module "tfe-public-tools" {
-  source            = "app.terraform.io/roknsound/repo/github"
-  force_name        = true
-  github_is_private = true
-  repo_org          = "HappyPathway"
-  name              = "tfe-public-tools"
-  enforce_prs       = false
-  pull_request_bypassers = [
-    "djaboxx"
-  ]
+resource "null_resource" "pull" {
+  for_each = var.refresh_repo ? tomap({ for repo in var.repos : repo.name => repo }) : tomap({})
+  triggers = {
+    last_commit = data.github_ref.ref[each.key].sha
+  }
+  provisioner "local-exec" {
+    command     = "git fetch"
+    working_dir = "${local.github_repo_base_dir}/${each.key}"
+  }
+  provisioner "local-exec" {
+    command     = "git checkout ${lookup(data.github_repository.repo, each.key).default_branch}"
+    working_dir = "${local.github_repo_base_dir}/${each.key}"
+  }
+  provisioner "local-exec" {
+    command     = "git pull origin ${lookup(data.github_repository.repo, each.key).default_branch}"
+    working_dir = "${local.github_repo_base_dir}/${each.key}"
+  }
 }
