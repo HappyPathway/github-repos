@@ -4,7 +4,7 @@ locals {
 
 module "repo" {
   for_each               = tomap({ for repo in var.repos : repo.name => repo })
-  source                 = "app.terraform.io/roknsound/repo/github"
+  source                 = "HappyPathway/repo/github"
   force_name             = each.value.force_name
   github_is_private      = each.value.private
   repo_org               = var.repo_org
