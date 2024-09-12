@@ -9,6 +9,7 @@ env:
   GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
   TF_WORKSPACE: "dev"
   TF_CLI_ARGS: "-input=false -var-file=var_files/dev.tfvars"
+  GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
   
 jobs:
   terraform:
