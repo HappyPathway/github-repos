@@ -104,13 +104,3 @@ repos = [
   }
 ]
 
-template_repos = [
-  {
-    force_name        = true
-    private           = true
-    name              = "csvd-ecs-github-runners"
-    enforce_prs       = false
-    template_repo     = "HappyPathway/template-ecs-github-runners"
-    template_repo_org = "HappyPathway"
-  }
-]
