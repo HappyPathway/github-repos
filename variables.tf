@@ -9,6 +9,18 @@ variable "repos" {
   default = []
 }
 
+variable "template_repos" {
+  type = list(object({
+    force_name        = bool
+    private           = bool
+    enforce_prs       = bool
+    name              = string
+    template_repo     = string
+    template_repo_org = string
+  }))
+  default = []
+}
+
 variable "pull_request_bypassers" {
   type    = list(string)
   default = []
