@@ -12,6 +12,7 @@ module "repo" {
   enforce_prs            = each.value.enforce_prs
   pull_request_bypassers = var.pull_request_bypassers
   is_template            = lookup(each.value, "is_template")
+  archive_on_destroy     = true
 }
 
 

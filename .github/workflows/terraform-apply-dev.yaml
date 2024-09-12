@@ -1,0 +1,46 @@
+name: "Dev :: Terraform Plan"
+
+on:
+  pull_request:
+    branches:
+      - main
+env:
+  GITHUB_OWNER: ${{ vars.gh_org }}
+  GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+  TF_WORKSPACE: "dev"
+  TF_CLI_ARGS_plan: "-var-file=var_files/dev.tfvars"
+  GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+  
+jobs:
+  terraform:
+    name: "Terraform FMT and Validation"
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          persist-credentials: false
+          
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3.1.2
+        with:
+          terraform_version: 1.9.1
+
+      - name: Terraform Init
+        id: init
+        run: terraform init -backend-config="bucket=hpw-terraform-state" -backend-config="prefix=github-repos"
+      
+      - name: Terraform Validate
+        id: validate
+        run: terraform validate
+
+      - name: Terraform apply
+        id: apply
+        run: terraform apply -auto-approve
