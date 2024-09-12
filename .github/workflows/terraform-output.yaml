@@ -1,0 +1,39 @@
+"env":
+  "GITHUB_OWNER": "${{ vars.gh_org }}"
+  "GITHUB_TOKEN": "${{ secrets.GH_TOKEN }}"
+  "GOOGLE_CREDENTIALS": "${{ secrets.GOOGLE_CREDENTIALS }}"
+  "TF_CLI_ARGS_plan": "-var-file=var_files/dev.tfvars"
+  "TF_WORKSPACE": "dev"
+"jobs":
+  "terraform":
+    "name": "plan"
+    "permissions":
+      "contents": "write"
+      "pull-requests": "write"
+    "runs-on": "ubuntu-latest"
+    "steps":
+    - "uses": "actions/checkout@v4"
+      "with":
+        "persist-credentials": false
+        "ref": "${{ github.head_ref }}"
+    - "uses": "actions/setup-node@v3"
+      "with":
+        "node-version": 16
+    - "name": "Setup Terraform"
+      "uses": "hashicorp/setup-terraform@v3.1.2"
+      "with":
+        "terraform_version": "1.9.1"
+    - "id": "init"
+      "name": "Terraform Init"
+      "run": "terraform init -backend-config=\"bucket=hpw-terraform-state\" -backend-config=\"prefix=github-repos\""
+    - "id": "validate"
+      "name": "Terraform Validate"
+      "run": "terraform validate"
+    - "id": "plan"
+      "name": "Terraform plan"
+      "run": "terraform plan"
+"name": "Dev :: Terraform Plan"
+on:
+  "pull_request":
+    "branches":
+    - "main"
