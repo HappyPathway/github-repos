@@ -1,4 +1,4 @@
-name: "Gov :: Terraform Plan"
+name: "Gov :: Terraform Apply"
 
 on:
   pull_request:
@@ -13,7 +13,7 @@ env:
 
 jobs:
   terraform:
-    name: "Terraform FMT and Validation"
+    name: "apply"
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write

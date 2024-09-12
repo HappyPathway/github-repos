@@ -13,7 +13,7 @@ env:
   
 jobs:
   terraform:
-    name: "Terraform FMT and Validation"
+    name: "plan"
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
