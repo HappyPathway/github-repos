@@ -13,13 +13,6 @@ repos = [
   },
   {
     force_name  = true
-    private     = true
-    name        = "pickle-rick"
-    enforce_prs = false
-    is_template = false
-  },
-  {
-    force_name  = true
     private     = false
     name        = "template-ecr-container-workspace"
     enforce_prs = false
