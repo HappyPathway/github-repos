@@ -10,7 +10,7 @@ env:
   GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
   TF_WORKSPACE: "gov"
   TF_CLI_ARGS_plan: "-var-file=var_files/gov.tfvars -lock-timeout=20m"
-  TF_CLI_ARGS_apply: "-var-file=var_files/gov.tfvars"
+  TF_CLI_ARGS_apply: "-var-file=var_files/gov.tfvars -lock-timeout=20m"
   GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
 
 jobs:
@@ -34,6 +34,7 @@ jobs:
         uses: hashicorp/setup-terraform@v3.1.2
         with:
           terraform_version: 1.9.1
+          terraform_wrapper: false
 
       - name: Terraform Init
         id: init
@@ -42,10 +43,6 @@ jobs:
       - name: Terraform Validate
         id: validate
         run: terraform validate
-
-      - name: Terraform plan
-        id: plan
-        run: terraform plan
 
       - name: Terraform apply
         id: apply
