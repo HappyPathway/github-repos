@@ -25,6 +25,8 @@ module "templates" {
   enforce_prs            = each.value.enforce_prs
   pull_request_bypassers = var.pull_request_bypassers
   archive_on_destroy     = true
+  template_repo          = each.value.template_repo
+  template_repo_org      = each.value.template_repo_org
 }
 
 
