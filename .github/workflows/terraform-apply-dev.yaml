@@ -37,11 +37,15 @@ jobs:
 
       - name: Terraform Init
         id: init
-        run: terraform init -backend-config="bucket=hpw-terraform-state" -backend-config="prefix=github-repos"
+        run: terraform init -backend-config="bucket=hpw-terraform-state" -backend-config="prefix=github-repos" -upgrade
       
       - name: Terraform Validate
         id: validate
         run: terraform validate
+
+      - name: Terraform plan
+        id: plan
+        run: terraform plan
 
       - name: Terraform apply
         id: apply
