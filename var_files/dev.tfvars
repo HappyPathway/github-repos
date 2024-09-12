@@ -100,6 +100,6 @@ repos = [
     private     = false
     name        = "template-ecs-github-runners"
     enforce_prs = true
-    is_template = false
+    is_template = true
   }
 ]
