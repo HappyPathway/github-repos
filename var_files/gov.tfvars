@@ -59,6 +59,13 @@ repos = [
     is_template = false
     name        = "windows-image-pipeline"
     private     = true
+  },
+  {
+    enforce_prs = false
+    force_name  = true
+    is_template = false
+    name        = "opensearch"
+    private     = true
   }
 ]
 
