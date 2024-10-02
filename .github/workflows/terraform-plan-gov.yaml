@@ -10,7 +10,7 @@ env:
   GITHUB_OWNER: ${{ vars.gh_org }}
   GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
   TF_WORKSPACE: "gov"
-  TF_CLI_ARGS_plan: "-var-file=var_files/gov.tfvars"
+  TF_CLI_ARGS_plan: "-var-file=varfiles/gov.tfvars"
   GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
 
 jobs:
