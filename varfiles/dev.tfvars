@@ -104,13 +104,6 @@ repos = [
   },
   {
     force_name  = true
-    private     = false
-    name        = "terraform-plan"
-    enforce_prs = true
-    is_template = true
-  },
-  {
-    force_name  = true
     private     = true
     enforce_prs = false
     is_template = false
