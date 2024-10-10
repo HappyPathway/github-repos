@@ -29,6 +29,40 @@ module "templates" {
   template_repo_org      = each.value.template_repo_org
 }
 
+locals {
+  composite_actions_template = {
+    for action in var.composite_actions : action => {
+      force_name  = true
+      private     = false
+      name        = action
+      enforce_prs = false
+    }
+  }
+}
+
+output "composite_actions" {
+  value = local.composite_actions_template
+}
+
+output "var_composite_actions" {
+  value = var.composite_actions
+}
+
+module "composite_actions" {
+  for_each               = tomap(local.composite_actions_template)
+  source                 = "HappyPathway/repo/github"
+  force_name             = each.value.force_name
+  github_is_private      = each.value.private
+  repo_org               = var.repo_org
+  name                   = each.value.name
+  enforce_prs            = each.value.enforce_prs
+  pull_request_bypassers = var.pull_request_bypassers
+  archive_on_destroy     = true
+}
+
+locals {
+  fetched_repos = merge(module.repo, module.templates, module.composite_actions)
+}
 
 data "github_repository" "repo" {
   for_each   = tomap({ for repo in var.repos : repo.name => repo })

@@ -43,3 +43,8 @@ variable "refresh_repo" {
   type    = bool
   default = false
 }
+
+variable "composite_actions" {
+  type    = list(string)
+  default = []
+}

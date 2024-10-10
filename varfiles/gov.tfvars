@@ -69,6 +69,18 @@ repos = [
   }
 ]
 
+composite_actions = [
+  "terraform-validate",
+  "terraform-plan",
+  "terraform-apply",
+  "terraform-init",
+  "aws-auth",
+  "github-actions",
+  "s3-upload",
+  "s3-download",
+  "gh-uuid"
+]
+
 template_repos = [
   {
     force_name        = true
