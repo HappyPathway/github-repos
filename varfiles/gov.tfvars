@@ -8,6 +8,13 @@ repos = [
     enforce_prs = false
     force_name  = true
     is_template = false
+    name        = "github-runner-workspace"
+    private     = true
+  },
+  {
+    enforce_prs = false
+    force_name  = true
+    is_template = false
     name        = "arnol377-sandbox"
     private     = true
   },
