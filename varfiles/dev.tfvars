@@ -104,7 +104,7 @@ repos = [
   },
   {
     force_name  = true
-    private     = true
+    private     = false
     name        = "template-ecs-github-runners"
     enforce_prs = true
     is_template = true
