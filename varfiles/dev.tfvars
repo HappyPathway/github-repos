@@ -76,21 +76,21 @@ repos = [
   },
   {
     force_name  = true
-    private     = true
+    private     = false
     name        = "terraform-plan"
     enforce_prs = true
     is_template = false
   },
   {
     force_name  = true
-    private     = true
+    private     = false
     name        = "terraform-apply"
     enforce_prs = true
     is_template = false
   },
   {
     force_name  = true
-    private     = true
+    private     = false
     name        = "terraform-validate"
     enforce_prs = true
     is_template = false
