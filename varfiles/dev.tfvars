@@ -14,6 +14,13 @@ repos = [
   {
     force_name  = true
     private     = true
+    name        = "streamdeck-configs"
+    enforce_prs = false
+    is_template = true
+  },
+  {
+    force_name  = true
+    private     = true
     name        = "template-ecr-container-workspace"
     enforce_prs = false
     is_template = true
