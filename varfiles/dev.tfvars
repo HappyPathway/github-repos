@@ -6,14 +6,14 @@ github_repo_base_dir = null
 repos = [
   {
     force_name  = true
-    private     = true
+    private     = false
     name        = "template-dockerhub-container-workspace"
     enforce_prs = false
     is_template = true
   },
   {
     force_name  = true
-    private     = true
+    private     = false
     name        = "streamdeck-configs"
     enforce_prs = false
     is_template = true
@@ -69,7 +69,7 @@ repos = [
   },
   {
     force_name  = true
-    private     = true
+    private     = false
     name        = "centralized-actions"
     enforce_prs = true
     is_template = false
@@ -97,7 +97,7 @@ repos = [
   },
   {
     force_name  = true
-    private     = true
+    private     = false
     name        = "tfe-public-tools"
     enforce_prs = true
     is_template = false
