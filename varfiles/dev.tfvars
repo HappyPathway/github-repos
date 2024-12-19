@@ -14,6 +14,13 @@ repos = [
   {
     force_name  = true
     private     = false
+    name        = "git-auth"
+    enforce_prs = false
+    is_template = true
+  },
+  {
+    force_name  = true
+    private     = false
     name        = "streamdeck-configs"
     enforce_prs = false
     is_template = true
