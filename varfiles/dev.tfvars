@@ -13,7 +13,7 @@ repos = [
   },
   {
     force_name  = true
-    private     = false
+    private     = true
     name        = "supervisord-managed-runners"
     enforce_prs = false
     is_template = false
