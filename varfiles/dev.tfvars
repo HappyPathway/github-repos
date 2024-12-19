@@ -97,6 +97,13 @@ repos = [
   },
   {
     force_name  = true
+    private     = true
+    name        = "vs-code-workspaces"
+    enforce_prs = false
+    is_template = false
+  },
+  {
+    force_name  = true
     private     = false
     name        = "terraform-apply"
     enforce_prs = true
