@@ -14,6 +14,13 @@ repos = [
   {
     force_name  = true
     private     = false
+    name        = "supervisord-managed-runners"
+    enforce_prs = false
+    is_template = false
+  },
+  {
+    force_name  = true
+    private     = false
     name        = "git-auth"
     enforce_prs = false
     is_template = true
