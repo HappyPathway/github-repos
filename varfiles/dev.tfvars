@@ -136,6 +136,14 @@ repos = [
     enforce_prs = false
     is_template = false
     name        = "brain-dump"
-  }
+  },
+  # django-terraform
+  {
+    force_name  = true
+    private     = false
+    name        = "django-terraform"
+    enforce_prs = false
+    is_template = false
+  },
 ]
 
