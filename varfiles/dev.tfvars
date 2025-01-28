@@ -145,5 +145,12 @@ repos = [
     enforce_prs = false
     is_template = false
   },
+  {
+    force_name  = true
+    private     = false
+    name        = "terraform-configurator"
+    enforce_prs = false
+    is_template = false
+  },
 ]
 
