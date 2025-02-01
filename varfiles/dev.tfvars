@@ -152,5 +152,12 @@ repos = [
     enforce_prs = false
     is_template = false
   },
+  {
+    force_name  = true
+    private     = true
+    name        = "ai-iac-experiments"
+    enforce_prs = false
+    is_template = false
+  },
 ]
 
