@@ -159,5 +159,11 @@ repos = [
     enforce_prs = false
     is_template = false
   },
+  {
+    force_name  = true
+    private     = false
+    name        = "tfe-tools"
+    enforce_prs = true
+    is_template = false
+  },
 ]
-
