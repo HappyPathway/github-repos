@@ -145,7 +145,7 @@ repos = [
     enforce_prs = false
     is_template = false
   },
-  {w
+  {
     force_name  = true
     private     = false
     name        = "terraform-configurator"
