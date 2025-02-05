@@ -145,7 +145,7 @@ repos = [
     enforce_prs = false
     is_template = false
   },
-  {
+  {w
     force_name  = true
     private     = false
     name        = "terraform-configurator"
@@ -166,4 +166,11 @@ repos = [
     enforce_prs = true
     is_template = false
   },
+  {
+    force_name  = true
+    private     = false
+    name        = "jarvis"
+    enforce_prs = false
+    is_template = false
+  }
 ]
