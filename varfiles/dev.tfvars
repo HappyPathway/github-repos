@@ -166,4 +166,11 @@ repos = [
     enforce_prs = true
     is_template = false
   },
+  {
+    force_name  = true
+    private     = true
+    name        = "ai-mental-trainer"
+    enforce_prs = false
+    is_template = false
+  },
 ]
