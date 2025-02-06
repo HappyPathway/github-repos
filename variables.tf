@@ -11,9 +11,9 @@ variable "repos" {
 
 variable "template_repos" {
   type = list(object({
-    force_name        = bool
-    private           = bool
-    enforce_prs       = bool
+    force_name        = optional(bool, true)
+    private           = optional(bool, false)
+    enforce_prs       = optional(bool, false)
     name              = string
     template_repo     = string
     template_repo_org = string

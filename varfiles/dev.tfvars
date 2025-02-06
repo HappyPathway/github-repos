@@ -174,3 +174,23 @@ repos = [
     is_template = false
   }
 ]
+
+
+# variable "template_repos" {
+#   type = list(object({
+#     force_name        = bool
+#     private           = bool
+#     enforce_prs       = bool
+#     name              = string
+#     template_repo     = string
+#     template_repo_org = string
+#   }))
+#   default = []
+# }
+template_repos = [
+  {
+    template_repo = "vscode-python-tools-extension-template",
+    template_org  = "microsoft"
+    name          = "jarvis-extension"
+  }
+]
