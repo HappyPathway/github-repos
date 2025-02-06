@@ -189,8 +189,8 @@ repos = [
 # }
 template_repos = [
   {
-    template_repo = "vscode-python-tools-extension-template",
-    template_org  = "microsoft"
-    name          = "jarvis-vscode-extension"
+    template_repo     = "vscode-python-tools-extension-template",
+    template_repo_org = "microsoft"
+    name              = "jarvis-vscode-extension"
   }
 ]
