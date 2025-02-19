@@ -24,7 +24,7 @@ module "templates" {
   github_is_private      = each.value.private
   repo_org               = var.repo_org
   name                   = each.value.name
-  enforce_prs            = each.value.private ? false : each.value.enforce_prs
+  enforce_prs            = local.enable_branch_protection[each.key]
   pull_request_bypassers = var.pull_request_bypassers
   archive_on_destroy     = true
   template_repo          = each.value.template_repo
