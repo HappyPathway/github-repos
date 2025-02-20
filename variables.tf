@@ -94,9 +94,13 @@ variable "refresh_repo" {
 }
 
 variable "composite_actions" {
-  description = "List of composite action repositories to create"
-  type        = list(string)
-  default     = []
+  description = "List of composite actions to create"
+  type = list(object({
+    name = string
+    force_name = optional(bool, false)
+    private = optional(bool, true)
+    enforce_prs = optional(bool, true)
+  }))
 }
 
 variable "reviewer_usernames" {
