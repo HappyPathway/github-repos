@@ -101,6 +101,7 @@ variable "composite_actions" {
     private = optional(bool, true)
     enforce_prs = optional(bool, true)
   }))
+  default = []
 }
 
 variable "reviewer_usernames" {
