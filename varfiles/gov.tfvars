@@ -83,7 +83,8 @@ repos = [
   }
 ]
 
-composite_actions = [
+
+composite_actions = [ for action in [
   "terraform-validate",
   "terraform-plan",
   "terraform-apply",
@@ -93,7 +94,13 @@ composite_actions = [
   "s3-upload",
   "s3-download",
   "gh-uuid"
-]
+] : {
+  name       = action
+  force_name = true
+  private    = true
+  enforce_prs = false
+}]
+
 
 template_repos = [
   {

@@ -3,6 +3,9 @@ pull_request_bypassers = [
 ]
 repo_org             = "HappyPathway"
 github_repo_base_dir = null
+clone_repo = true
+refresh_repo = true
+
 repos = [
   {
     force_name  = true
@@ -137,7 +140,6 @@ repos = [
     is_template = false
     name        = "brain-dump"
   },
-  # django-terraform
   {
     force_name  = true
     private     = false
@@ -172,24 +174,12 @@ repos = [
     name        = "jarvis"
     enforce_prs = false
     is_template = false
-  }
-]
-
-# variable "template_repos" {
-#   type = list(object({
-#     force_name        = bool
-#     private           = bool
-#     enforce_prs       = bool
-#     name              = string
-#     template_repo     = string
-#     template_repo_org = string
-#   }))
-#   default = []
-# }
-template_repos = [
+  },
   {
-    template_repo     = "vscode-python-tools-extension-template",
-    template_repo_org = "microsoft"
-    name              = "jarvis-vscode-extension"
+    force_name  = true
+    private     = true
+    name        = "weight-trainer"
+    enforce_prs = false
+    is_template = false
   }
 ]
