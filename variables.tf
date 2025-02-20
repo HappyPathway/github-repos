@@ -1,3 +1,9 @@
+variable "github_pro_enabled" {
+  description = "Set to true if you have GitHub Pro subscription"
+  type        = bool
+  default     = false
+}
+
 variable "repos" {
   type = list(object({
     force_name  = bool

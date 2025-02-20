@@ -3,6 +3,9 @@ pull_request_bypassers = [
 ]
 repo_org             = "HappyPathway"
 github_repo_base_dir = null
+clone_repo = true
+refresh_repo = true
+
 repos = [
   {
     force_name  = true
@@ -85,14 +88,14 @@ repos = [
     force_name  = true
     private     = false
     name        = "centralized-actions"
-    enforce_prs = true
+    enforce_prs = false
     is_template = false
   },
   {
     force_name  = true
     private     = false
     name        = "terraform-plan"
-    enforce_prs = true
+    enforce_prs = false
     is_template = false
   },
   {
@@ -106,28 +109,28 @@ repos = [
     force_name  = true
     private     = false
     name        = "terraform-apply"
-    enforce_prs = true
+    enforce_prs = false
     is_template = false
   },
   {
     force_name  = true
     private     = false
     name        = "terraform-validate"
-    enforce_prs = true
+    enforce_prs = false
     is_template = false
   },
   {
     force_name  = true
     private     = false
     name        = "tfe-public-tools"
-    enforce_prs = true
+    enforce_prs = false
     is_template = false
   },
   {
     force_name  = true
     private     = false
     name        = "template-ecs-github-runners"
-    enforce_prs = true
+    enforce_prs = false
     is_template = true
   },
   {
@@ -162,7 +165,7 @@ repos = [
     force_name  = true
     private     = false
     name        = "tfe-tools"
-    enforce_prs = true
+    enforce_prs = false
     is_template = false
   },
   {

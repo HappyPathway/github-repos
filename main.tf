@@ -2,6 +2,7 @@ locals {
   github_repo_base_dir = var.github_repo_base_dir != null ? var.github_repo_base_dir : pathexpand("~/git")
 }
 
+# Update the module configuration
 module "repo" {
   for_each               = tomap({ for repo in var.repos : repo.name => repo })
   source                 = "HappyPathway/repo/github"
@@ -9,12 +10,13 @@ module "repo" {
   github_is_private      = each.value.private
   repo_org               = var.repo_org
   name                   = each.value.name
-  enforce_prs            = each.value.enforce_prs
+  enforce_prs            = local.enable_branch_protection[each.key]
   pull_request_bypassers = var.pull_request_bypassers
   is_template            = lookup(each.value, "is_template")
   archive_on_destroy     = true
 }
 
+# Similarly update the templates module
 module "templates" {
   for_each               = tomap({ for repo in var.template_repos : repo.name => repo })
   source                 = "HappyPathway/repo/github"
@@ -22,12 +24,13 @@ module "templates" {
   github_is_private      = each.value.private
   repo_org               = var.repo_org
   name                   = each.value.name
-  enforce_prs            = each.value.enforce_prs
+  enforce_prs            = local.enable_branch_protection[each.key]
   pull_request_bypassers = var.pull_request_bypassers
   archive_on_destroy     = true
   template_repo          = each.value.template_repo
   template_repo_org      = each.value.template_repo_org
 }
+
 
 locals {
   composite_actions_template = {
