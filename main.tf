@@ -82,6 +82,7 @@ locals {
   }
 }
 
+# Update the module configuration
 module "repo" {
   for_each               = tomap({ for repo in var.repos : repo.name => repo })
   source                 = "../terraform-github-repo"
@@ -96,6 +97,7 @@ module "repo" {
   environments           = local.environments_as_list[each.key]
 }
 
+# Similarly update the templates module
 module "templates" {
   for_each               = tomap({ for repo in var.template_repos : repo.name => repo })
   source                 = "../terraform-github-repo"
