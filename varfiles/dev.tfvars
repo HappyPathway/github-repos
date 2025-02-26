@@ -174,12 +174,5 @@ repos = [
     name        = "jarvis"
     enforce_prs = false
     is_template = false
-  },
-  {
-    force_name  = true
-    private     = true
-    name        = "weight-trainer"
-    enforce_prs = false
-    is_template = false
   }
 ]

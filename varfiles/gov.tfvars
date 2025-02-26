@@ -83,13 +83,12 @@ repos = [
   }
 ]
 
-
 composite_actions = [ for action in [
   "terraform-validate",
   "terraform-plan",
   "terraform-apply",
   "terraform-init",
-  "aws-auth",
+  "aws-auth", 
   "github-actions",
   "s3-upload",
   "s3-download",
@@ -101,13 +100,12 @@ composite_actions = [ for action in [
   enforce_prs = false
 }]
 
-
 template_repos = [
   {
     force_name        = true
-    private           = true
+    private           = false  # Making it public to allow branch protection
     name              = "csvd-ecs-github-runners"
-    enforce_prs       = false
+    enforce_prs       = true
     template_repo     = "template-ecs-github-runners"
     template_repo_org = "HappyPathway"
   }
