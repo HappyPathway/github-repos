@@ -3,19 +3,19 @@ locals {
     for repo in var.repos : {
       name = repo.name
       type = "repo"
-    }
+    } if repo.import
   ]
   template_imports = [
     for repo in var.template_repos : {
       name = repo.name
       type = "template"
-    }
+    } if repo.import
   ]
   composite_action_imports = [
     for action in var.composite_actions : {
       name = action.name
       type = "composite"
-    }
+    } if repo.import
   ]
 }
 
