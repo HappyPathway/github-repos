@@ -174,5 +174,12 @@ repos = [
     name        = "jarvis"
     enforce_prs = false
     is_template = false
+  },
+  {
+    force_name  = true
+    private     = false
+    name        = "tf-plan-analyzer"
+    enforce_prs = false
+    is_template = false
   }
 ]
