@@ -10,6 +10,7 @@ variable "repos" {
     name                    = string
     force_name             = bool
     private                = bool
+    import                 = optional(bool, false)
     environments = optional(map(object({
       deployment_branch_policy = optional(object({
         protected_branches     = optional(bool, true)
@@ -41,6 +42,7 @@ variable "template_repos" {
     private                = optional(bool, true)
     template_repo          = string
     template_repo_org      = string
+    import                 = optional(bool, false)
     environments = optional(map(object({
       deployment_branch_policy = optional(object({
         protected_branches     = optional(bool, true)
@@ -97,9 +99,10 @@ variable "composite_actions" {
   description = "List of composite actions to create"
   type = list(object({
     name = string
-    force_name = optional(bool, false)
-    private = optional(bool, true)
+    force_name  = optional(bool, false)
+    private     = optional(bool, true)
     enforce_prs = optional(bool, true)
+    import      = optional(bool, false)
   }))
   default = []
 }

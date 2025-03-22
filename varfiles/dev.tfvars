@@ -177,9 +177,10 @@ repos = [
   },
   {
     force_name  = true
-    private     = true
-    name        = "weight-trainer"
+    private     = false
+    name        = "tf-plan-analyzer"
     enforce_prs = false
     is_template = false
+    import      = false
   }
 ]
