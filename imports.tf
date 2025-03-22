@@ -15,7 +15,7 @@ locals {
     for action in var.composite_actions : {
       name = action.name
       type = "composite"
-    } if repo.import
+    } if action.import
   ]
 }
 
