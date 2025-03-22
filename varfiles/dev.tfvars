@@ -181,5 +181,6 @@ repos = [
     name        = "tf-plan-analyzer"
     enforce_prs = false
     is_template = false
+    import      = false
   }
 ]

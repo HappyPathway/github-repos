@@ -21,14 +21,14 @@ locals {
 
 # Import standard repositories
 import {
-  for_each = { for repo in var.repos : repo.name => repo }
+  for_each = { for repo in local.base_imports : repo.name => repo }
   to       = module.repo[each.key].github_repository.repo[0]
   id       = each.key
 }
 
 # Import template repositories
 import {
-  for_each = { for repo in var.template_repos : repo.name => repo }
+  for_each = { for repo in local.template_imports : repo.name => repo }
   to       = module.templates[each.key].github_repository.repo[0]
   id       = each.key
 }
@@ -43,7 +43,7 @@ import {
 # Import branch protection for standard repositories
 import {
   for_each = { 
-    for repo in var.repos : repo.name => repo
+    for repo in local.base_imports : repo.name => repo
     if lookup(local.enable_branch_protection, repo.name, false)
   }
   to       = module.repo[each.key].github_branch_protection.protection["main"]
@@ -53,7 +53,7 @@ import {
 # Import branch protection for template repositories
 import {
   for_each = { 
-    for repo in var.template_repos : repo.name => repo
+    for repo in local.template_imports : repo.name => repo
     if lookup(local.enable_branch_protection, repo.name, false)
   }
   to       = module.templates[each.key].github_branch_protection.protection["main"]
