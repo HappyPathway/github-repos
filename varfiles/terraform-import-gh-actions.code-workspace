@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "../../terraform-import-gh-actions"
+		},
+		{
+			"path": ".."
+		}
+	],
+	"settings": {}
+}
