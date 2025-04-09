@@ -74,7 +74,7 @@ module "repo" {
 # Similarly update the templates module with same logic
 module "templates" {
   for_each               = tomap({ for repo in var.template_repos : repo.name => repo })
-  source                 = "../terraform-github-repo"
+  source                 = "HappyPathway/repo/github"
   force_name             = each.value.force_name
   github_is_private      = each.value.private
   repo_org               = var.repo_org
@@ -103,7 +103,7 @@ output "var_composite_actions" {
 
 module "composite_actions" {
   for_each               = tomap(local.composite_actions_template)
-  source                 = "../terraform-github-repo"
+  source                 = "HappyPathway/repo/github"
   force_name             = each.value.force_name
   github_is_private      = each.value.private
   repo_org               = var.repo_org

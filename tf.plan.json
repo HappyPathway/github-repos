@@ -37288,7 +37288,7 @@
       ],
       "module_calls": {
         "composite_actions": {
-          "source": "../terraform-github-repo",
+          "source": "HappyPathway/repo/github",
           "expressions": {
             "archive_on_destroy": {
               "references": [
@@ -38586,7 +38586,7 @@
           }
         },
         "repo": {
-          "source": "../terraform-github-repo",
+          "source": "HappyPathway/repo/github",
           "expressions": {
             "archive_on_destroy": {
               "references": [
@@ -39889,7 +39889,7 @@
           }
         },
         "templates": {
-          "source": "../terraform-github-repo",
+          "source": "HappyPathway/repo/github",
           "expressions": {
             "archive_on_destroy": {
               "constant_value": true
