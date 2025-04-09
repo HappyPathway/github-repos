@@ -37,7 +37,7 @@ jobs:
 
       - name: Terraform Init
         id: init
-        run: terraform init -backend-config="bucket=hpw-terraform-state" -backend-config="prefix=github-repos" -upgrade
+        run: terraform init -backend-config="bucket=hpw-terraform-state" -backend-config="prefix=music-rental-inventory" -upgrade
       
       - name: Terraform Validate
         id: validate

@@ -51,17 +51,24 @@ locals {
 
 # Update the module configuration
 module "repo" {
-  for_each               = tomap({ for repo in var.repos : repo.name => repo })
+  for_each               = { for repo in var.repos : repo.name => repo }
   source                 = "HappyPathway/repo/github"
-  force_name             = each.value.force_name
-  github_is_private      = each.value.private
+  force_name             = try(each.value.force_name, false)
+  github_is_private      = try(each.value.private, true)
   repo_org               = var.repo_org
   name                   = each.value.name
   enforce_prs            = local.enable_branch_protection[each.key]
   pull_request_bypassers = var.pull_request_bypassers
-  is_template            = lookup(each.value, "is_template", false)
-  archive_on_destroy     = lookup(each.value, "archive_on_destroy", true)
-  environments           = local.environments_as_list[each.key]
+  is_template            = try(each.value.is_template, false)
+  archive_on_destroy     = try(each.value.archive_on_destroy, true)
+  environments           = try(local.environments_as_list[each.key], [])
+  create_repo            = true
+
+  # Ensure other required parameters are passed
+  github_auto_init       = try(each.value.github_auto_init, true)
+  github_has_issues      = try(each.value.github_has_issues, false)
+  github_has_wiki        = try(each.value.github_has_wiki, true)
+  github_has_projects    = try(each.value.github_has_projects, true)
 }
 
 # Similarly update the templates module with same logic
@@ -77,6 +84,7 @@ module "templates" {
   archive_on_destroy     = true
   template_repo          = each.value.template_repo
   template_repo_org      = each.value.template_repo_org
+  create_repo            = true
   environments           = try([
     for env_name, env_config in each.value.environments : merge(
       { name = env_name },
