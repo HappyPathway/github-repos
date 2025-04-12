@@ -4,7 +4,15 @@
 			"path": "."
 		},
 		{
-			"path": "HappyPathway/repo/github"
+			"path": "../terraform-github-repo"
+		},
+		{
+			"path": "../providers/terraform-provider-github/website/docs/d",
+			"name": "provider-docs/datasources"
+		},
+		{
+			"path": "../providers/terraform-provider-github/website/docs/r",
+			"name": "provider-docs/resources"
 		}
 	],
 	"settings": {},
