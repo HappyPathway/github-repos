@@ -17,6 +17,7 @@ repos = [
     name        = "tf-plan-analyzer"
     enforce_prs = false
     is_template = false
+    import      = true
   },
   {
     force_name  = true
@@ -24,6 +25,7 @@ repos = [
     name        = "terraform-module-release"
     enforce_prs = true
     is_template = false
+    import      = true
   },
   {
     force_name  = true
@@ -59,6 +61,7 @@ repos = [
     name        = "template-dockerhub-container-workspace"
     enforce_prs = false
     is_template = true
+    import      = true
   },
   {
     force_name  = true
@@ -66,6 +69,7 @@ repos = [
     name        = "supervisord-managed-runners"
     enforce_prs = false
     is_template = false
+    import      = true
   },
   {
     force_name  = true
@@ -73,6 +77,7 @@ repos = [
     name        = "git-auth"
     enforce_prs = false
     is_template = true
+    import      = true
   },
   {
     force_name  = true
@@ -80,6 +85,7 @@ repos = [
     name        = "streamdeck-configs"
     enforce_prs = false
     is_template = true
+    import      = true
   },
   {
     force_name  = true
@@ -87,6 +93,7 @@ repos = [
     name        = "template-ecr-container-workspace"
     enforce_prs = false
     is_template = true
+    import      = true
   },
   {
     force_name  = true
@@ -94,6 +101,7 @@ repos = [
     name        = "template-gcr-container-workspace"
     enforce_prs = false
     is_template = true
+    import      = true
   },
   {
     force_name  = true
@@ -101,6 +109,7 @@ repos = [
     name        = "dockerhub-workspaces"
     enforce_prs = false
     is_template = true
+    import      = true
   },
   {
     force_name  = true
@@ -108,6 +117,7 @@ repos = [
     name        = "aws-codebuild-image-pipeline"
     enforce_prs = false
     is_template = false
+    import      = true
   },
   {
     force_name  = true
@@ -115,6 +125,7 @@ repos = [
     name        = "chromebook-venv"
     enforce_prs = false
     is_template = false
+    import      = true
   },
   {
     force_name  = true
@@ -122,6 +133,7 @@ repos = [
     name        = "terraform-book"
     enforce_prs = false
     is_template = false
+    import      = true
   },
   {
     force_name  = true
@@ -129,6 +141,7 @@ repos = [
     name        = "seed-workspace"
     enforce_prs = false
     is_template = false
+    import      = true
   },
   {
     force_name  = true
@@ -136,6 +149,7 @@ repos = [
     name        = "centralized-actions"
     enforce_prs = true
     is_template = false
+    import      = true
   },
   {
     force_name  = true
@@ -143,6 +157,7 @@ repos = [
     name        = "terraform-plan"
     enforce_prs = true
     is_template = false
+    import      = true
   },
   {
     force_name  = true
@@ -150,6 +165,7 @@ repos = [
     name        = "vs-code-workspaces"
     enforce_prs = false
     is_template = false
+    import      = true
   },
   {
     force_name  = true
@@ -157,6 +173,7 @@ repos = [
     name        = "terraform-apply"
     enforce_prs = true
     is_template = false
+    import      = true
   },
   {
     force_name  = true
@@ -164,6 +181,7 @@ repos = [
     name        = "terraform-validate"
     enforce_prs = true
     is_template = false
+    import      = true
   },
   {
     force_name  = true
@@ -171,6 +189,7 @@ repos = [
     name        = "tfe-public-tools"
     enforce_prs = true
     is_template = false
+    import      = true
   },
   {
     force_name  = true
@@ -178,6 +197,7 @@ repos = [
     name        = "template-ecs-github-runners"
     enforce_prs = true
     is_template = true
+    import      = true
   },
   {
     force_name  = true
@@ -185,6 +205,7 @@ repos = [
     enforce_prs = false
     is_template = false
     name        = "brain-dump"
+    import      = true
   },
   {
     force_name  = true
@@ -192,6 +213,7 @@ repos = [
     name        = "django-terraform"
     enforce_prs = false
     is_template = false
+    import      = true
   },
   {
     force_name  = true
@@ -199,6 +221,7 @@ repos = [
     name        = "terraform-configurator"
     enforce_prs = false
     is_template = false
+    import      = true
   },
   {
     force_name  = true
@@ -206,6 +229,7 @@ repos = [
     name        = "ai-iac-experiments"
     enforce_prs = false
     is_template = false
+    import      = true
   },
   {
     force_name  = true
@@ -213,6 +237,7 @@ repos = [
     name        = "tfe-tools"
     enforce_prs = true
     is_template = false
+    import      = true
   },
   {
     force_name  = true
@@ -220,6 +245,7 @@ repos = [
     name        = "jarvis"
     enforce_prs = false
     is_template = false
+    import      = true
   },
   {
     force_name  = true
@@ -227,6 +253,7 @@ repos = [
     name        = "weight-trainer"
     enforce_prs = false
     is_template = false
+    import      = true
   }
 ]
 
@@ -235,5 +262,6 @@ template_repos = [
     template_repo     = "vscode-python-tools-extension-template",
     template_repo_org = "microsoft"
     name              = "jarvis-vscode-extension"
+    import            = true
   }
 ]
