@@ -28,7 +28,21 @@ repos = [
   {
     force_name  = true
     private     = true
-    name        = "musical-rental-inventory"
+    name        = "musical-rental-inventory-django"
+    enforce_prs = false
+    is_template = false
+  },
+  {
+    force_name  = true
+    private     = true
+    name        = "musical-rental-inventory-api"
+    enforce_prs = false
+    is_template = false
+  },
+  {
+    force_name  = true
+    private     = true
+    name        = "musical-rental-inventory-infra"
     enforce_prs = false
     is_template = false
   },
